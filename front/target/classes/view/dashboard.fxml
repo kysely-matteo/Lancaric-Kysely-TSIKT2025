@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.front.front.controller.DashboardController"
+      spacing="20"
+      style="-fx-padding: 20;">
+
+    <!-- Header -->
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Text text="Dashboard - Collaborative Study Platform"
+              style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Odhlásiť sa" onAction="#handleLogout"
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Welcome message -->
+    <Label fx:id="welcomeLabel" text="Vitajte v študijnom dashboarde!"
+           style="-fx-font-size: 16; -fx-text-fill: #333;"/>
+
+    <!-- Groups Section -->
+    <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5;">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Text text="Moje študijné skupiny" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="⟳ Obnoviť" onAction="#handleRefreshGroups"
+                    style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+            <Button text="+ Vytvoriť skupinu" onAction="#handleCreateGroup"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+
+        <ListView fx:id="groupsListView" prefHeight="200"/>
+
+        <Button text="📂 Otvoriť skupinu" onAction="#handleOpenGroup"
+                style="-fx-pref-width: 300; -fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14;"/>
+    </VBox>
+
+    <!-- Quick Stats -->
+    <HBox spacing="20">
+        <VBox style="-fx-padding: 15; -fx-background-color: #e3f2fd; -fx-border-radius: 5; -fx-pref-width: 200;">
+            <Text text="Aktívne skupiny" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+            <Text text="3" style="-fx-font-size: 24; -fx-fill: #2196F3;"/>
+        </VBox>
+
+        <VBox style="-fx-padding: 15; -fx-background-color: #e8f5e8; -fx-border-radius: 5; -fx-pref-width: 200;">
+            <Text text="Nedokončené úlohy" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+            <Text text="5" style="-fx-font-size: 24; -fx-fill: #4CAF50;"/>
+        </VBox>
+
+        <VBox style="-fx-padding: 15; -fx-background-color: #ffebee; -fx-border-radius: 5; -fx-pref-width: 200;">
+            <Text text="Termíny tento týždeň" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+            <Text text="2" style="-fx-font-size: 24; -fx-fill: #f44336;"/>
+        </VBox>
+    </HBox>
+</VBox>

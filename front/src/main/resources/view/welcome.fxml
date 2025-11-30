@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="40" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.front.front.controller.WelcomeController">
+
+    <padding><Insets top="100" bottom="100" left="150" right="150"/></padding>
+
+    <Text text="Collaborative Study Platform" style="-fx-font-size: 32; -fx-font-weight: bold; -fx-fill: #2196F3;"/>
+
+    <Text text="Platforma pre študijné skupiny a spoluprácu" style="-fx-font-size: 16; -fx-fill: #666;"/>
+
+    <VBox alignment="CENTER" spacing="15" style="-fx-pref-width: 250;">
+        <Button text="Prihlásiť sa" onAction="#handleLogin"
+                style="-fx-pref-width: 250; -fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14;"/>
+        <Button text="Registrovať sa" onAction="#handleRegister"
+                style="-fx-pref-width: 250; -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14;"/>
+    </VBox>
+
+    <Text text="Zdieľajte materiály, spravujte úlohy a študujte spolu!"
+          style="-fx-font-size: 14; -fx-fill: #888; -fx-text-alignment: center;"/>
+</VBox>
