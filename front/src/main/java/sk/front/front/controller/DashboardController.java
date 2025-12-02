@@ -1,5 +1,10 @@
 package sk.front.front.controller;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import sk.front.front.websocket.WebSocketClientService;
+import sk.front.front.model.NotificationMessage;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,11 +18,76 @@ import sk.front.front.model.GroupResponse;
 import sk.front.front.model.User;
 import sk.front.front.service.ApiService;
 import sk.front.front.service.AuthService;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.geometry.Insets;
+import java.util.Optional;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.scene.control.*;
 
 import java.util.List;
 import java.util.Optional;
 
 public class DashboardController {
+
+    private WebSocketClientService webSocketClient;
+    private Long currentUserId;
+
+    public void setCurrentUserId(Long userId) {
+        this.currentUserId = userId;
+        initializeWebSocket();
+    }
+
+    private void initializeWebSocket() {
+        // URL k WebSocket serveru, berúc do úvahy tvoj server (localhost:8080)
+        String serverUrl = "ws://localhost:8080/ws";
+        webSocketClient = new WebSocketClientService();
+        webSocketClient.connect(currentUserId, this::handleNotification);
+    }
+
+    private void handleNotification(NotificationMessage notification) {
+        Platform.runLater(() -> {
+            // Zobrazenie notifikácie napr. v Alert boxe
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(notification.getTitle());
+            alert.setHeaderText("Nové upozornenie");
+            alert.setContentText(notification.getMessage());
+            alert.showAndWait();
+
+            // Alebo aktualizovať zoznam notifikácií v UI
+            // notificationListView.getItems().add(notification);
+        });
+    }
+
+    @FXML
+    private void handleOpenNotifications() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/notifications.fxml"));
+            Parent root = loader.load();
+
+            // The NotificationsController already uses AuthService.getNotifications()
+            // so no need to set anything
+            Stage stage = new Stage();
+            stage.setTitle("Notifikácie");
+            stage.setScene(new Scene(root, 400, 500));
+            stage.show();
+
+            // Force refresh of ListView when window is opened
+            NotificationsController controller = loader.getController();
+            if (controller != null) {
+                // Refresh the ListView
+                controller.notificationListView.refresh();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Chyba", "Nepodarilo sa otvoriť notifikácie: " + e.getMessage());
+        }
+    }
+
+
+
     @FXML private Label welcomeLabel;
     @FXML private ListView<GroupResponse> groupsListView;
 
@@ -145,4 +215,104 @@ public class DashboardController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    public void onGroupSelected(Long groupId) {
+        AuthService.subscribeToGroup(groupId);
+    }
+
+    @FXML
+    private void handleEditProfile() {
+        try {
+            // Vytvorenie custom dialógu
+            Dialog<Map<String, String>> dialog = new Dialog<>();
+            dialog.setTitle("Upraviť profil");
+            dialog.setHeaderText("Zmeňte svoje údaje");
+
+            // Nastavenie tlačidiel
+            ButtonType saveButtonType = new ButtonType("Uložiť", ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(saveButtonType, ButtonType.CANCEL);
+
+            // Vytvorenie formulára
+            GridPane grid = new GridPane();
+            grid.setHgap(10);
+            grid.setVgap(10);
+            grid.setPadding(new Insets(20, 150, 10, 10));
+
+            TextField nameField = new TextField(currentUser.getName());
+            nameField.setPromptText("Meno");
+            TextField emailField = new TextField(currentUser.getEmail());
+            emailField.setPromptText("Email");
+
+            grid.add(new Label("Meno:"), 0, 0);
+            grid.add(nameField, 1, 0);
+            grid.add(new Label("Email:"), 0, 1);
+            grid.add(emailField, 1, 1);
+
+            dialog.getDialogPane().setContent(grid);
+
+            // Konvertor výsledku
+            dialog.setResultConverter(dialogButton -> {
+                if (dialogButton == saveButtonType) {
+                    Map<String, String> result = new HashMap<>();
+                    result.put("name", nameField.getText());
+                    result.put("email", emailField.getText());
+                    return result;
+                }
+                return null;
+            });
+
+            // Zobrazenie dialógu a spracovanie výsledku
+            Optional<Map<String, String>> result = dialog.showAndWait();
+            result.ifPresent(userData -> {
+                String newName = userData.get("name").trim();
+                String newEmail = userData.get("email").trim();
+
+                // Validácia
+                if (newName.isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, "Chyba", "Meno nemôže byť prázdne");
+                    return;
+                }
+                if (newEmail.isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, "Chyba", "Email nemôže byť prázdny");
+                    return;
+                }
+
+                // Kontrola, či sa niečo zmenilo
+                if (newName.equals(currentUser.getName()) && newEmail.equals(currentUser.getEmail())) {
+                    showAlert(Alert.AlertType.INFORMATION, "Informácia", "Neboli vykonané žiadne zmeny");
+                    return;
+                }
+
+                try {
+                    // Volanie API na update
+                    User updatedUser = apiService.updateUser(currentUser.getUserId(), newName, newEmail);
+
+                    // Aktualizácia aktuálneho používateľa
+                    AuthService.setCurrentUser(updatedUser);
+                    currentUser = updatedUser;
+
+                    // Aktualizácia UI
+                    welcomeLabel.setText("Vitajte, " + currentUser.getName() + "!");
+
+                    showAlert(Alert.AlertType.INFORMATION, "Úspech",
+                            "Profil bol úspešne aktualizovaný!");
+
+                    // Refresh zoznamu skupín (pre istotu)
+                    loadUserGroups();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showAlert(Alert.AlertType.ERROR, "Chyba",
+                            "Nepodarilo sa aktualizovať profil: " + e.getMessage());
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Chyba",
+                    "Nepodarilo sa otvoriť editor profilu: " + e.getMessage());
+        }
+    }
+
+
 }

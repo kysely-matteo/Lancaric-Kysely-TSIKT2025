@@ -30,6 +30,7 @@ public class LoginController {
 
         try {
             User user = apiService.login(email, password);
+            // Uložíme používateľa a inicializujeme WebSocket
             AuthService.setCurrentUser(user);
             showAlert(Alert.AlertType.INFORMATION, "Úspech", "Úspešne prihlásený!");
             loadDashboard();
@@ -51,9 +52,15 @@ public class LoginController {
 
     private void loadDashboard() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
+            Parent root = loader.load();
+            DashboardController controller = loader.getController();
+
             Stage stage = (Stage) emailField.getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root, 900, 700));
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Chyba", "Nepodarilo sa načítať dashboard");

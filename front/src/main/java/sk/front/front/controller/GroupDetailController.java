@@ -1,6 +1,8 @@
 package sk.front.front.controller;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sk.front.front.model.*;
 import sk.front.front.service.ApiService;
@@ -40,6 +43,8 @@ public class GroupDetailController {
     @FXML private TableColumn<Resource, LocalDateTime> resourceDateColumn;
     @FXML private VBox resourcesSection;
 
+    private final List<NotificationMessage> groupNotifications = FXCollections.observableArrayList();
+
     private ApiService apiService = new ApiService();
     private ResourceService resourceService = new ResourceService();
     private GroupResponse currentGroup;
@@ -49,6 +54,7 @@ public class GroupDetailController {
     public void setGroup(GroupResponse group) {
         this.currentGroup = group;
         loadGroupData();
+        //setupWebSocketForGroup();
     }
 
     @FXML
@@ -364,7 +370,7 @@ public class GroupDetailController {
         }
 
         try {
-            resourceService.deleteResource(selectedResource.getResourceId());
+            resourceService.deleteResource(currentGroup.getGroupId(), selectedResource.getResourceId());
             showAlert(Alert.AlertType.INFORMATION, "Úspech", "Materiál bol zmazaný!");
             loadGroupResources(); // Refresh zoznamu
 
@@ -612,4 +618,26 @@ public class GroupDetailController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    private void handleViewAnalytics() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/analytics.fxml"));
+            Parent root = loader.load();
+
+            AnalyticsController controller = loader.getController();
+            controller.setGroupId(currentGroup.getGroupId());
+
+            Stage stage = new Stage();
+            stage.setTitle("Štatistiky skupiny - " + currentGroup.getName());
+            stage.setScene(new Scene(root, 1000, 800));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Chyba", "Nepodarilo sa otvoriť štatistiky: " + e.getMessage());
+        }
+    }
+
+
 }

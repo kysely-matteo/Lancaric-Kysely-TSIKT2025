@@ -136,9 +136,12 @@ public class ResourceService {
         }
     }
 
-    public void deleteResource(Long resourceId) throws Exception {
+    public void deleteResource(Long groupId, Long resourceId) throws Exception {
+
+
+
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(java.net.URI.create(AppConfig.getApiUrl("/groups/resources/" + resourceId))) // POZOR: táto URL sa môže líšiť!
+                .uri(java.net.URI.create(AppConfig.getApiUrl("/groups/" + groupId + "/resources/" + resourceId)))
                 .header("Content-Type", "application/json")
                 .DELETE()
                 .build();

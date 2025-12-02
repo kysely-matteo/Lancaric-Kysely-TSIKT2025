@@ -45,6 +45,8 @@
                 style="-fx-background-color: #795548; -fx-text-fill: white;"/>
         <Button text="⟳ Obnoviť všetko" onAction="#handleRefreshAll"
                 style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+        <Button text="📊 Štatistiky" onAction="#handleViewAnalytics"
+                style="-fx-background-color: #9C27B0; -fx-text-fill: white;"/>
     </HBox>
 
     <!-- Main Content - Split between Members, Tasks and Resources -->

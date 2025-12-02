@@ -95,6 +95,44 @@ public class ApiService {
         }
     }
 
+    public User updateUser(Long userId, String name, String email) throws Exception {
+        // Vytvoríme request body
+        Map<String, String> updateRequest = new HashMap<>();
+        updateRequest.put("name", name);
+        updateRequest.put("email", email);
+
+        String jsonBody = mapper.writeValueAsString(updateRequest);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(java.net.URI.create(AppConfig.getApiUrl("/auth/user/" + userId)))
+                .header("Content-Type", "application/json")
+                .PUT(HttpRequest.BodyPublishers.ofString(jsonBody))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Map<String, Object> responseMap = mapper.readValue(response.body(),
+                new TypeReference<Map<String, Object>>() {});
+
+        if (response.statusCode() == 200 && Boolean.TRUE.equals(responseMap.get("success"))) {
+            @SuppressWarnings("unchecked")
+            Map<String, Object> userMap = (Map<String, Object>) responseMap.get("user");
+
+            User user = new User();
+            user.setUserId(Long.valueOf(userMap.get("userId").toString()));
+            user.setName((String) userMap.get("name"));
+            user.setEmail((String) userMap.get("email"));
+
+            if (userMap.get("createdAt") != null) {
+                String createdAtStr = userMap.get("createdAt").toString();
+                user.setCreatedAt(LocalDateTime.parse(createdAtStr.replace(" ", "T")));
+            }
+
+            return user;
+        } else {
+            throw new RuntimeException((String) responseMap.get("message"));
+        }
+    }
 
 
     public List<GroupResponse> getUserGroups(Long userId) throws Exception {
