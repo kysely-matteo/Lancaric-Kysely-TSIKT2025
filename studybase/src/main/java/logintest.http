@@ -1,0 +1,114 @@
+### Test zdravia aplikácie
+GET http://localhost:8080/api/health
+Accept: application/json
+
+### REGISTRÁCIA používateľa
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Juraj Lancaric",
+  "email": "juri@example.com",
+  "password": "heslo123"
+}
+### PRIHLÁSENIE používateľa
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "jess@example.com",
+  "password": "tajne"
+}
+###
+GET http://localhost:8080/api/auth/user/4
+Accept: application/json
+
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Juraj Lancaric",
+  "email": "juri@example.com",
+  "password": "heslo123"
+}
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Jessica Hrinakova",
+  "email": "jess@example.com",
+  "password": "tajne"
+}
+
+### Vytvorenie skupiny (userId=1 - Janko z predchádzajúceho testu)
+POST http://localhost:8080/api/groups?userId=1
+Content-Type: application/json
+
+{
+  "name": "Smer-SD",
+  "description": "Skupina pre mladých kokotov"
+}
+
+###
+POST http://localhost:8080/api/groups/1/members?userId=5&role=MEMBER
+
+###
+GET http://localhost:8080/api/groups
+
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Adam Piroš",
+  "email": "eidamgo@example.com",
+  "password": "darksouls"
+}
+
+###
+POST http://localhost:8080/api/groups/1/tasks?userId=1
+Content-Type: application/json
+
+{
+  "title": "Domáca úloha č. 1",
+  "description": "Vyriešte príklady 1-10 z kapitoly 2",
+  "deadline": "2025-01-25T23:59:00"
+}
+###
+DELETE http://localhost:8080/api/groups/1/tasks/1
+
+###
+GET http://localhost:8080/api/groups/1/tasks
+
+###
+PATCH http://localhost:8080/api/groups/1/tasks/1/status?status=IN_PROGRESS
+###
+GET http://localhost:8080/api/groups/1/tasks/status/IN_PROGRESS
+
+###
+POST http://localhost:8080/api/groups/1/resources?userId=1
+Content-Type: application/json
+
+{
+  "title": "ACSS",
+  "type": "PDF FILE",
+  "pathOrUrl": "file:///C:/Users/juraj/OneDrive/Po%C4%8D%C3%ADta%C4%8D/acssdoc.pdf"
+}
+
+### Získanie materiálov skupiny 1
+GET http://localhost:8080/api/groups/1/resources
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Tester",
+  "email": "1",
+  "password": "1"
+}
+### 1. GET všetky resources pre skupinu
+GET http://localhost:8080/api/groups/1/resources
+Content-Type: application/json
+
