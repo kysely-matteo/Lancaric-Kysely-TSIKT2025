@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="20" style="-fx-padding: 20; -fx-background-color: #0abab5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.front.front.controller.AnalyticsController">
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label fx:id="groupNameLabel" text="Štatistiky skupiny" textFill="#ffedf3">
+         <font>
+            <Font name="BatuphatScript-Regular" size="31.0" />
+         </font></Label>
+        <Label fx:id="monthLabel" style="-fx-text-fill: #666; -fx-font-size: 14px;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleBack" style="-fx-background-color: none; -fx-text-fill: #ffedf3; -fx-border-radius: 5; -fx-border-width: 3; -fx-border-color: #ffedf3;" text="← Späť" />
+        <Button onAction="#handleRefresh" style="-fx-background-color: none; -fx-text-fill: #ffedf3; -fx-border-radius: 5; -fx-border-width: 3; -fx-border-color: #ffedf3;" text="⟳ Obnoviť" />
+    </HBox>
+
+    <!-- Quick Stats -->
+    <GridPane hgap="15" style="-fx-padding: 20; -fx-background-color: #56dfcf; -fx-background-radius: 10;" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="200" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="200" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="200" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="200" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="200" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="200" />
+        </columnConstraints>
+
+        <!-- Column 0 -->
+        <VBox alignment="CENTER" style="-fx-border-color: #ffedf3; -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="0">
+            <Label text="Celkovo úloh" textFill="#ffedf3">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <Label fx:id="totalTasksLabel" style="-fx-font-size: 32px; -fx-text-fill: #2196F3; -fx-font-weight: bold;" text="0" />
+        </VBox>
+
+        <!-- Column 1 -->
+        <VBox alignment="CENTER" style="-fx-border-color: #ffedf3; -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="1">
+            <Label text="Dokončené" textFill="#ffedf3">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <Label fx:id="completedTasksLabel" style="-fx-font-size: 32px; -fx-text-fill: #4CAF50; -fx-font-weight: bold;" text="0" />
+        </VBox>
+
+        <!-- Column 2 -->
+        <VBox alignment="CENTER" style="-fx-border-color: #ffedf3; -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="2">
+            <Label text="Úspešnosť" textFill="#ffedf3">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <Label fx:id="completionRateLabel" style="-fx-font-size: 32px; -fx-text-fill: #FF9800; -fx-font-weight: bold;" text="0%" />
+        </VBox>
+
+        <!-- Column 3 -->
+        <VBox alignment="CENTER" style="-fx-border-color: #ffedf3; -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="3">
+            <Label text="Materiály" textFill="#ffedf3">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <Label fx:id="totalResourcesLabel" style="-fx-font-size: 32px; -fx-text-fill: #9C27B0; -fx-font-weight: bold;" text="0" />
+        </VBox>
+
+        <!-- Column 4 -->
+        <VBox alignment="CENTER" style="-fx-border-color: #ffedf3; -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="4">
+            <Label text="Priem. čas" textFill="#ffedf3">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <Label fx:id="avgCompletionTimeLabel" style="-fx-font-size: 24px; -fx-text-fill: #F44336; -fx-font-weight: bold;" text="0 hod" />
+        </VBox>
+
+        <!-- Column 5 - Placeholder for future stats -->
+        <VBox alignment="CENTER" style="-fx-border-color: #ffedf3; -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5;" GridPane.columnIndex="5">
+            <Label text="Aktívnych členov" textFill="#ffedf3">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <Label style="-fx-font-size: 32px; -fx-text-fill: #00BCD4; -fx-font-weight: bold;" text="-" />
+        </VBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <!-- Charts Section -->
+    <HBox spacing="178.0">
+        <!-- Task Status Chart -->
+        <VBox fx:id="taskChartContainer" prefHeight="300" prefWidth="320" style="-fx-padding: 15; -fx-background-color: white; -fx-background-radius: 10;">
+            <Text fill="#0abab5" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Stav úloh" />
+        </VBox>
+
+        <!-- Resource Type Chart -->
+        <VBox fx:id="resourceChartContainer" prefHeight="300" prefWidth="320" style="-fx-padding: 15; -fx-background-color: white; -fx-background-radius: 10;">
+            <Text fill="#0abab5" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Typy materiálov" />
+        </VBox>
+
+        <!-- Member Activity Chart -->
+        <VBox fx:id="memberChartContainer" prefHeight="300" prefWidth="320" style="-fx-padding: 15; -fx-background-color: white; -fx-background-radius: 10;">
+            <Text fill="#0abab5" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Top členovia" />
+        </VBox>
+    </HBox>
+
+    <!-- Member Activity Table -->
+    <VBox style="-fx-padding: 15; -fx-background-color: #56dfcf; -fx-background-radius: 10;">
+        <Text fill="#ffedf3" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Aktivita členov">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin></Text>
+
+        <TableView fx:id="memberActivityTable" prefHeight="250">
+            <columns>
+                <TableColumn fx:id="memberNameColumn" prefWidth="150" text="Meno" />
+                <TableColumn fx:id="memberRoleColumn" prefWidth="80" text="Rola" />
+                <TableColumn fx:id="tasksCreatedColumn" prefWidth="120" text="Vytvorené úlohy" />
+                <TableColumn fx:id="tasksCompletedColumn" prefWidth="120" text="Dokončené úlohy" />
+                <TableColumn fx:id="resourcesColumn" prefWidth="80" text="Materiály" />
+                <TableColumn fx:id="activityScoreColumn" prefWidth="80" text="Skóre" />
+            </columns>
+        </TableView>
+    </VBox>
+
+</VBox>

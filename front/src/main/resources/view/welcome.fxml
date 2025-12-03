@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="585.0" style="-fx-background-color: #0abab5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.front.front.controller.WelcomeController">
+    <children>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#adeed9" height="181.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+                <Insets left="80.0" top="-130.0" />
+            </StackPane.margin>
+        </Rectangle>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#adeed9" height="204.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets right="50.0" top="-120.0" />
+            </StackPane.margin>
+        </Rectangle>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#adeed9" height="204.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" StackPane.alignment="TOP_CENTER">
+            <StackPane.margin>
+                <Insets left="30.0" top="-160.0" />
+            </StackPane.margin>
+        </Rectangle>
+        <Circle fill="#adeed9" radius="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" StackPane.alignment="BOTTOM_LEFT">
+            <StackPane.margin>
+                <Insets bottom="40.0" left="40.0" />
+            </StackPane.margin>
+        </Circle>
+        <Circle fill="#adeed9" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" StackPane.alignment="BOTTOM_LEFT">
+            <StackPane.margin>
+                <Insets bottom="80.0" left="80.0" />
+            </StackPane.margin>
+        </Circle>
+        <Circle fill="#adeed9" radius="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" StackPane.alignment="BOTTOM_LEFT">
+            <StackPane.margin>
+                <Insets bottom="90.0" left="55.0" />
+            </StackPane.margin>
+        </Circle>
+        <Circle fill="#adeed9" radius="19.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" StackPane.alignment="CENTER_RIGHT">
+            <StackPane.margin>
+                <Insets right="40.0" />
+            </StackPane.margin>
+        </Circle>
+        <Text fill="#ffedf3" strokeType="OUTSIDE" strokeWidth="0.0" text="By studens For students" textAlignment="CENTER" wrappingWidth="586.914306640625" StackPane.alignment="BOTTOM_CENTER">
+            <font>
+                <Font name="BatuphatScript-Regular" size="22.0" />
+            </font>
+            <StackPane.margin>
+                <Insets bottom="30.0" />
+            </StackPane.margin>
+        </Text>
+        <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#56dfcf" height="326.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
+        <VBox alignment="CENTER" prefHeight="465.0" prefWidth="489.0" spacing="40.0">
+            <children>
+                <Text fill="#ffedf3" strokeType="OUTSIDE" strokeWidth="0.0" text="StudyBase" textAlignment="CENTER" wrappingWidth="306.9143371582031">
+                    <font>
+                        <Font name="BatuphatScript-Regular" size="55.0" />
+                    </font>
+                </Text>
+                <Button mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #56dfcf; -fx-background-radius: 30; -fx-border-color: #ffedf3; -fx-border-radius: 30; -fx-border-width: 3;" text="Login" textFill="#ffedf3">
+                    <font>
+                        <Font name="BatuphatScript-Regular" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Button mnemonicParsing="false" onAction="#handleRegister" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #56dfcf; -fx-background-radius: 30; -fx-border-color: #ffedf3; -fx-border-radius: 30; -fx-border-width: 3;" text="Register" textFill="#ffedf3">
+                    <font>
+                        <Font name="BatuphatScript-Regular" size="23.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+            </children>
+        </VBox>
+        <Circle fill="#adeed9" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" StackPane.alignment="CENTER_RIGHT">
+            <StackPane.margin>
+                <Insets bottom="70.0" right="50.0" />
+            </StackPane.margin>
+        </Circle>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#adeed9" height="189.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" StackPane.alignment="CENTER_LEFT">
+            <StackPane.margin>
+                <Insets left="10.0" />
+            </StackPane.margin>
+        </Rectangle>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#adeed9" height="189.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" StackPane.alignment="CENTER_LEFT">
+            <StackPane.margin>
+                <Insets bottom="240.0" left="-40.0" />
+            </StackPane.margin>
+        </Rectangle>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#ffedf3" height="189.0" rotate="90.0" stroke="#ffedf3" strokeType="INSIDE" strokeWidth="0.0" width="50.0" StackPane.alignment="CENTER_LEFT">
+            <StackPane.margin>
+                <Insets left="-30.0" top="200.0" />
+            </StackPane.margin>
+        </Rectangle>
+    </children>
+</StackPane>
