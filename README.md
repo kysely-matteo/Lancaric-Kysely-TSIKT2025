@@ -1,13 +1,10 @@
-# Collaborative Study Platform - Semestrálna práca
+# Collaborative Study Platform
 
-## 📋 Obsah
+## Obsah
 - [Úvod](#úvod)
-- [Hlavné funkcie](#hlavné-funkcie)
 - [Vrstvy aplikácie](#vrstvy-aplikácie)
 - [Inštalácia a spustenie](#inštalácia-a-spustenie)
 - [Používateľské rozhranie](#používateľské-rozhranie)
-- [Výzvy a riešenia](#výzvy-a-riešenia)
-- [Použitie AI](#použitie-ai)
 - [Autori](#autori)
 
 ---
@@ -55,10 +52,42 @@
 - **Komunikácia**: REST API, WebSocket (STOMP)
 - **Build systém**: Maven
 - **Verzovanie**: Git + GitHub
+<center>
+<img width="585" height="679" alt="image" src="https://github.com/user-attachments/assets/95057335-b07a-4961-aa45-f932a77219d1"/>
+</center>
+---
+
+### Inštalácia a spustenie
+
+#### 1. Potrebné programy
+   - Java 21
+   - Maven
+   - MySQL
+   - JavaFX 21
+   - IntelliJ IDEA 2025 (alebo podobný program na kompiláciu reprository)
+   - [Font **Batuphat Script**](https://www.dafont.com/batuphat-script.font)
+
+#### 2. Stiahnutie reprository
+   - Stiahnite reprository z Githubu a vložte ho do vhodného priečinka.
+     
+#### 3. Zapnutie back-endu/front-endu
+   - Pustite v IntelliJ IDEA backend  - súbor **\studybase** a v ňom aplikáciu **StudybaseApplication.java**.
+   - Pustite v IntelliJ IDEA frontend - súbor   **\front**   a v ňom aplikáciu         **Main.java**.
+   - Po nabehnutí backendu nabehne aplikácia, a môžeme s ňou pracovať.
 
 ---
 
+### Používateľské Rozhranie
 
-<img width="585" height="679" alt="image" src="https://github.com/user-attachments/assets/95057335-b07a-4961-aa45-f932a77219d1" />
+---
 
+### Autori
+
+#### - Lančarič Juraj
+   - Email: **xlancaricj@stuba.sk**
+   - AIS ID: 120959
+
+#### - Kyselý Matteo
+   - Email: **xkysely@stuba.sk**
+   - AIS ID: 134014
 
