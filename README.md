@@ -100,7 +100,7 @@
    - Pridávať/odstraňovať členov
    - Vytvárať/meniť úlohy
    - Nahrávať/odstraňovať študijné materiály - súbory
-V ľavom hornom rohu si môžeme prezrieť štatistiku úloh medzi študnetami danej skupiny **(Štatistiky)**.
+   - V ľavom hornom rohu si môžeme prezrieť štatistiku úloh medzi študnetami danej skupiny - tlačítko **(Štatistiky)**
 
 <img width="1804" height="1397" alt="image" src="https://github.com/user-attachments/assets/fbef6779-bb54-4d3b-a50e-f24d1090fec7" />
 
