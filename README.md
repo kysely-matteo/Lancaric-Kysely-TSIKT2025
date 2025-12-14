@@ -53,9 +53,8 @@
 - **Build systém**: Maven
 - **Verzovanie**: Git + GitHub
   
-<center>
 <img width="585" height="679" alt="image" src="https://github.com/user-attachments/assets/95057335-b07a-4961-aa45-f932a77219d1"/>
-</center>
+
 
 ---
 
@@ -81,14 +80,14 @@
 
 ## Používateľské Rozhranie
 ### 1. Úvodná obrazovka
-<img width="1204" height="947" alt="image" src="https://github.com/user-attachments/assets/4a2fbff5-6a49-4d11-8bff-f24e204f225e" />
 - Na úvodnej obrazovke sa môžeme prihlásiť **(Login)** pod existujúcim účtom, alebo môžeme zaregistrovať nový účet **(Register)**.
+<img width="1204" height="947" alt="image" src="https://github.com/user-attachments/assets/4a2fbff5-6a49-4d11-8bff-f24e204f225e" />
 
 ### 2. Skupiny
-<img width="1354" height="1097" alt="image" src="https://github.com/user-attachments/assets/e93c85b0-3fce-4099-a25c-efe6928b7584" />
    - V následnej obrazovke môžeme vidieť všetky skupiny, v ktorých sme pridaný. Prípadne môžeme vytvoriť novú skupinu pomocou **(+)**.
    - V pravom hornom rohu môžeme upravovať náš profil.
    - V prahom hornom rohu môžeme taktiež zobraziť naše upozornenia.
+<img width="1354" height="1097" alt="image" src="https://github.com/user-attachments/assets/e93c85b0-3fce-4099-a25c-efe6928b7584" />
 <img width="572" height="797" alt="image" src="https://github.com/user-attachments/assets/09daab74-a27d-4129-9925-c631d6d56f34" />
 
    - Ak vytvoríme novú skupinu, alebo otvoríme skupinu, ktorej sme členom, otvorí sa nám okno s danou skupinou.
