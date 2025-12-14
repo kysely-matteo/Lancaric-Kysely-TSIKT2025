@@ -2,9 +2,8 @@
 
 ## 📋 Obsah
 - [Úvod](#úvod)
-- [Architektúra systému](#architektúra-systému)
-- [Databázový model](#databázový-model)
-- [REST API a WebSocket dokumentácia](#rest-api-a-websocket-dokumentácia)
+- [Hlavné funkcie](#hlavné-funkcie)
+- [Vrstvy aplikácie](#vrstvy-aplikácie)
 - [Inštalácia a spustenie](#inštalácia-a-spustenie)
 - [Používateľské rozhranie](#používateľské-rozhranie)
 - [Výzvy a riešenia](#výzvy-a-riešenia)
@@ -13,26 +12,26 @@
 
 ---
 
-## 🎯 Úvod
+## Úvod
 
 **Collaborative Study Platform** je aplikácia navrhnutá pre študentov, ktorá umožňuje efektívnu spoluprácu v študijných skupinách. Platforma rieši problém neorganizovanej komunikácie a správy študijných materiálov medzi študentmi.
 
-### Hlavné funkcie:
-- 📚 **Správa študijných skupín** - vytváranie, úprava, mazanie skupín
-- ✅ **Riadenie úloh** - pridávanie úloh s deadline-ami a sledovanie stavov
-- 📎 **Zdieľanie materiálov** - odkazov a súborov
-- 🔔 **Real-time notifikácie** - okamžité upozornenia na nové aktivity
-- 👥 **Správa používateľov** - registrácia, prihlásenie, profily
-- 📊 **Štatistiky** - prehľad aktivity a výkonnosti skupín
+### Hlavné funkcie
+- **Správa študijných skupín** - vytváranie, úprava, mazanie skupín
+- **Riadenie úloh** - pridávanie úloh s deadline-ami a sledovanie stavov
+- **Zdieľanie materiálov** - odkazov a súborov
+- **Real-time notifikácie** - okamžité upozornenia na nové aktivity
+- **Správa používateľov** - registrácia, prihlásenie, profily
+- **Štatistiky** - prehľad aktivity a výkonnosti skupín
 
-### Cieľová skupina:
+### Cieľová skupina
 - Študenti vysokých škôl a stredných škôl
 - Študijné skupiny a tímy
 - Učitelia organizujúci tímovú prácu
 
 ---
 
-### Vrstvy aplikácie:
+### Vrstvy aplikácie
 
 #### 1. **Frontend vrstva (JavaFX)**
    - **Úloha**: Vykreslenie používateľského rozhrania a spracovanie používateľských vstupov
@@ -58,4 +57,8 @@
 - **Verzovanie**: Git + GitHub
 
 ---
+
+
+<img width="585" height="679" alt="image" src="https://github.com/user-attachments/assets/95057335-b07a-4961-aa45-f932a77219d1" />
+
 
