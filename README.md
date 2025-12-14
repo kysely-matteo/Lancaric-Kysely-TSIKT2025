@@ -52,9 +52,11 @@
 - **Komunikácia**: REST API, WebSocket (STOMP)
 - **Build systém**: Maven
 - **Verzovanie**: Git + GitHub
+  
 <center>
 <img width="585" height="679" alt="image" src="https://github.com/user-attachments/assets/95057335-b07a-4961-aa45-f932a77219d1"/>
 </center>
+
 ---
 
 ### Inštalácia a spustenie
