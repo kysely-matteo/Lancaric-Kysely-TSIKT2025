@@ -86,17 +86,17 @@
 
 #### 2. Skupiny
 <img width="1354" height="1097" alt="image" src="https://github.com/user-attachments/assets/e93c85b0-3fce-4099-a25c-efe6928b7584" />
-- V následnej obrazovke môžeme vidieť všetky skupiny, v ktorých sme pridaný. Prípadne môžeme vytvoriť novú skupinu pomocou **(+)**.
-- V pravom hornom rohu môžeme upravovať náš profil.
-- V prahom hornom rohu môžeme taktiež zobraziť naše upozornenia.
+   - V následnej obrazovke môžeme vidieť všetky skupiny, v ktorých sme pridaný. Prípadne môžeme vytvoriť novú skupinu pomocou **(+)**.
+   - V pravom hornom rohu môžeme upravovať náš profil.
+   - V prahom hornom rohu môžeme taktiež zobraziť naše upozornenia.
 <img width="572" height="797" alt="image" src="https://github.com/user-attachments/assets/09daab74-a27d-4129-9925-c631d6d56f34" />
 
-- Ak vytvoríme novú skupinu, alebo otvoríme skupinu, ktorej sme členom, otvorí sa nám okno s danou skupinou.
+   - Ak vytvoríme novú skupinu, alebo otvoríme skupinu, ktorej sme členom, otvorí sa nám okno s danou skupinou.
 <img width="1654" height="1247" alt="image" src="https://github.com/user-attachments/assets/3a1c239a-0893-4672-8e57-d16687dee742" />
 ## Môžeme:
-- Pridávať/odstraňvoaať členov
-- Vytvárať/meniť úlohy
-- Nahrávať/odstraňovať študijné materiály - súbory
+   - Pridávať/odstraňvoaať členov
+   - Vytvárať/meniť úlohy
+   - Nahrávať/odstraňovať študijné materiály - súbory
 V ľavom hornom rohu si môžeme prezrieť štatistiku úloh medzi študnetami danej skupiny **(Štatistiky)**.
 <img width="1804" height="1397" alt="image" src="https://github.com/user-attachments/assets/fbef6779-bb54-4d3b-a50e-f24d1090fec7" />
 ---
