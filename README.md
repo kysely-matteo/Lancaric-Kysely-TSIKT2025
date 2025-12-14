@@ -97,12 +97,13 @@
 <img width="1654" height="1247" alt="image" src="https://github.com/user-attachments/assets/3a1c239a-0893-4672-8e57-d16687dee742" />
 
 #### Môžeme:
-   - Pridávať/odstraňvoaať členov
+   - Pridávať/odstraňovať členov
    - Vytvárať/meniť úlohy
    - Nahrávať/odstraňovať študijné materiály - súbory
 V ľavom hornom rohu si môžeme prezrieť štatistiku úloh medzi študnetami danej skupiny **(Štatistiky)**.
 
 <img width="1804" height="1397" alt="image" src="https://github.com/user-attachments/assets/fbef6779-bb54-4d3b-a50e-f24d1090fec7" />
+
 ---
 
 ### Autori
@@ -114,4 +115,5 @@ V ľavom hornom rohu si môžeme prezrieť štatistiku úloh medzi študnetami d
 #### - Kyselý Matteo
    - Email: **xkysely@stuba.sk**
    - AIS ID: 134014
-
+     
+---
