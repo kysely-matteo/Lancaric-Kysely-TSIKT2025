@@ -79,12 +79,12 @@
 
 ---
 
-### Používateľské Rozhranie
-#### 1. Úvodná obrazovka
+## Používateľské Rozhranie
+### 1. Úvodná obrazovka
 <img width="1204" height="947" alt="image" src="https://github.com/user-attachments/assets/4a2fbff5-6a49-4d11-8bff-f24e204f225e" />
 - Na úvodnej obrazovke sa môžeme prihlásiť **(Login)** pod existujúcim účtom, alebo môžeme zaregistrovať nový účet **(Register)**.
 
-#### 2. Skupiny
+### 2. Skupiny
 <img width="1354" height="1097" alt="image" src="https://github.com/user-attachments/assets/e93c85b0-3fce-4099-a25c-efe6928b7584" />
    - V následnej obrazovke môžeme vidieť všetky skupiny, v ktorých sme pridaný. Prípadne môžeme vytvoriť novú skupinu pomocou **(+)**.
    - V pravom hornom rohu môžeme upravovať náš profil.
@@ -93,7 +93,7 @@
 
    - Ak vytvoríme novú skupinu, alebo otvoríme skupinu, ktorej sme členom, otvorí sa nám okno s danou skupinou.
 <img width="1654" height="1247" alt="image" src="https://github.com/user-attachments/assets/3a1c239a-0893-4672-8e57-d16687dee742" />
-## Môžeme:
+#### Môžeme:
    - Pridávať/odstraňvoaať členov
    - Vytvárať/meniť úlohy
    - Nahrávať/odstraňovať študijné materiály - súbory
